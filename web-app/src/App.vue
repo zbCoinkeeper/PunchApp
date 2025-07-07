@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <!-- 页面内容 -->
     <router-view />
 
@@ -18,15 +18,5 @@
 
 
 <style scoped>
-#app {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
 
-.page-content {
-  flex: 1;
-  overflow-y: auto;
-  padding: 16px;
-}
 </style>
