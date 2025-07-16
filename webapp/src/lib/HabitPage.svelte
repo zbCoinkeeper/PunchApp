@@ -1,5 +1,5 @@
 <script lang="ts">
-    let habits:str[] = [];
+    let habits:string[] = [];
 
     function addHabit(text: string) {
         if (text.trim()) {
