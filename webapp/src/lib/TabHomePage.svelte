@@ -2,8 +2,8 @@
   import HabitPage from './HabitPage.svelte';
   import RingPage from "./RingPage.svelte";
   const tabs = [
-    { label: '首页', content: HabitPage },
-    { label: '分类', content: RingPage },
+    { label: '习惯管理', content: HabitPage },
+    { label: '打卡记录', content: RingPage },
   ];
 
   let activeIndex = 0;
