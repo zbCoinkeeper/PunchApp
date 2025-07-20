@@ -9,21 +9,25 @@
 
     let habits: Habit[] = [];
 
-    // 加载 localStorage 数据（可选）
     onMount(() => {
         const saved = localStorage.getItem('habits');
         if (saved) {
             const parsed = JSON.parse(saved);
-            habits = parsed.map((h: any) => ({
+            habits = parsed.map(h => ({
                 ...h,
-                completedDates: new Set(h.completedDates)
+                // ✅ 安全地创建 Set，确保传入的是数组
+                completedDates: new Set(
+                    Array.isArray(h.completedDates) ? h.completedDates : []
+                )
             }));
         }
     });
-
     // 保存数据到 localStorage
     function saveHabits() {
-        localStorage.setItem('habits', JSON.stringify(habits));
+        localStorage.setItem('habits', JSON.stringify(habits.map(h => ({
+            ...h,
+            completedDates: Array.from(h.completedDates) // ✅ Set -> Array
+        }))));
     }
 
     function addHabit(text: string) {
